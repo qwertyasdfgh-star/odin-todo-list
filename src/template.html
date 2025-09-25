@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prio-List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&family=New+Rocker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Header -->
+        <header>
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-list"></i>
+                    <h1>Prio-List</h1>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Side Navigation -->
+            <div class="sidebar">
+                <div class="sidebar-buttons">
+                    <button class="sidebar-btn active" data-project="all">
+                        <i class="fas fa-tasks"></i>
+                        <span>All Tasks</span>
+                        <span class="task-count">0</span>
+                    </button>
+                    <button class="sidebar-btn" data-project="today">
+                        <i class="fas fa-calendar-day"></i>
+                        <span>Today</span>
+                        <span class="task-count">0</span>
+                    </button>
+                    <button class="sidebar-btn" data-project="week">
+                        <i class="fas fa-calendar-week"></i>
+                        <span>This Week</span>
+                        <span class="task-count">0</span>
+                    </button>
+                    <button class="sidebar-btn" data-project="completed">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Completed</span>
+                        <span class="task-count">0</span>
+                    </button>
+                </div>
+
+                <div class="projects-section">
+                    <h2>Projects</h2>
+                    <div id="projects-list"></div>
+                    <button id="add-project" class="add-btn">
+                        <i class="fas fa-plus"></i>
+                        Add Project
+                    </button>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="content-header">
+                    <h2 id="task-list">Tasks</h2>
+                </div>
+                <div id="todos-list"></div>
+                    <button id="add-todo">
+                    <i class="fas fa-plus"></i>
+                    <span>Add Task</span>
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Task Modal -->
+    <div id="task-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Add Task</h3>
+            <form id="task-form">
+                <div class="form-group">
+                    <input type="text" id="task-title" placeholder="Task name" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="task-description" placeholder="Description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="task-date">Due Date:</label>
+                    <input type="date" id="task-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="task-priority">Priority:</label>
+                    <select id="task-priority" required>
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="task-project">Project:</label>
+                    <select id="task-project" required>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">Add Task</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Project Modal -->
+    <div id="project-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Add Project</h3>
+            <form id="project-form">
+                <div class="form-group">
+                    <input type="text" id="project-name" placeholder="Project name" required>
+                </div>
+                <button type="submit" class="submit-btn">Add Project</button>
+            </form>
+        </div>
+    </div>
+
+            <!-- Delete Task Modal -->
+        <div id="delete-task-modal" class="modal" style="display: none;">
+            <div class="modal-content delete-modal">
+                <h3>Delete Task</h3>
+                <p>Are you sure you want to delete this task?</p>
+                <div class="modal-actions">
+                    <button class="cancel-btn">Cancel</button>
+                    <button class="delete-btn">Delete</button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Delete Project Modal -->
+        <div id="delete-project-modal" class="modal" style="display: none;">
+            <div class="modal-content delete-modal">
+                <h3>Delete Project</h3>
+                <p>Are you sure you want to delete this project and all its tasks?</p>
+                <div class="modal-actions">
+                    <button class="cancel-btn">Cancel</button>
+                    <button class="delete-btn">Delete</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</body>
+</html>
